@@ -1,1 +1,2 @@
-# rsp_projekt
+SOW-JAV-Projekt 
+von Niklas & Louis

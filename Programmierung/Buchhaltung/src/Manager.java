@@ -50,4 +50,12 @@ public class Manager extends Mitarbeiter {
 		this.gehalt = gehalt;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString()+"Gehalt: "+ gehalt;
+	}
+
+	
+	//toString
+	
 }

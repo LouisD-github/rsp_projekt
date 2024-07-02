@@ -216,11 +216,19 @@ public abstract class Mitarbeiter {
 	
     public void MitarbeiterSchreiben() {
 		
-	} 
+	}
+
+	 
     
   
-	
-	
+	//toString 
+    
+    @Override
+	public String toString() {
+		return "Mnr: "+ Mnr +"\nGebJahr="+ GebJahr + "\nVorname=" + Vorname + "\nNachname=" + Nachname
+				+ "\nBerufsbezeichnung=" +Berufsbezeichnung + "\nEintrittsdatum=" + Eintrittsdatum + "\nGeschlecht="
+				+ Geschlecht+"\n";
+	}
 		
 		
 	

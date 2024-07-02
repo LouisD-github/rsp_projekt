@@ -71,4 +71,11 @@ public class Stundenlöhner extends Mitarbeiter {
 		this.stundenlohn = stundenlohn;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString()+"Gehalt=" + gehalt + "\nstundenanzahl. " + stundenanzahl + "\nstundenlohn: " + stundenlohn;
+	}
+	
+	//toString 
+
 }

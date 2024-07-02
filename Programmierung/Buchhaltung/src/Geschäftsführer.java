@@ -70,7 +70,13 @@ public class Geschäftsführer extends Mitarbeiter{
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return super.toString()+"Gehalt: " + gehalt + "\nZulage: " + Zulage;
+	}
 	
+	//toString
 	
 	
 	

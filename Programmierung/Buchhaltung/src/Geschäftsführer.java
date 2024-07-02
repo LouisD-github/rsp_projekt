@@ -75,6 +75,12 @@ public class Geschäftsführer extends Mitarbeiter{
 	public String toString() {
 		return super.toString()+"Gehalt: " + gehalt + "\nZulage: " + Zulage;
 	}
+
+	@Override
+	public void Lohnerhöhung() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//toString
 	

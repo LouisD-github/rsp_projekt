@@ -193,17 +193,76 @@ public class Group {
 
 	public void toSting2() {
 		for (Mitarbeiter mitarbeiter : XListe) {
-		  if(mitarbeiter==null) {  
-			 return; 
-		  }
-          System.out.println(mitarbeiter.toString());
+			if(mitarbeiter==null) {  
+				return; 
+			}
+			System.out.println(mitarbeiter.toString());
 		}
-		
+
 	}
-	
+
 	public void gehaltsabrechnung() {
 		for (int i = 0; i < Liste.length; i++) {
 			System.out.println(Liste[i].Gehaltsabrechnung());
+		}
+	}
+
+	public void Lohnerhöhung() throws Exception {
+
+		System.out.println("1.Einzelner Mitarbeiter");
+		System.out.println("2.Gruppe");
+
+		int x = new Scanner(System.in).nextInt();
+
+		switch(x) {
+		case 1:
+			System.out.println("Geben sie die Mitarbeiternummer ein");
+			String Y = new Scanner(System.in).nextLine();
+			for (Mitarbeiter mitarbeiter : XListe) {
+				if(mitarbeiter.getMnr().equals(Y)) {
+
+					mitarbeiter.Lohnerhöhung();
+				}
+
+			}
+
+			break;
+		case 2: 
+			for (Mitarbeiter mitarbeiter : XListe) {
+				if(mitarbeiter==null) {
+
+					return; 
+				}
+				System.out.println("Wie viel Prozent bro Job");
+				System.out.println("Manager: ");
+				int x1 = new Scanner(System.in).nextInt();
+				System.out.println("Geschäftsführer: ");
+				int x2 = new Scanner(System.in).nextInt();
+				System.out.println("Angestellter: ");
+				int x3 = new Scanner(System.in).nextInt();
+				System.out.println("Stundenlöhner (Neuer Stundenlohn): ");
+				int x4 = new Scanner(System.in).nextInt();
+
+				if(mitarbeiter instanceof Angestellter) {
+
+
+					((Angestellter)mitarbeiter).Lohnerhöhung(x3);
+
+				}
+				if(mitarbeiter instanceof Stundenlöhner) {
+
+					((Stundenlöhner)mitarbeiter).setStundenlohn(x4);
+				}
+				if(mitarbeiter instanceof Manager) {
+
+					((Manager)mitarbeiter).Lohnerhöhung(x1);
+				}
+				if(mitarbeiter instanceof Geschäftsführer) {
+
+					((Geschäftsführer)mitarbeiter).Lohnerhöhung(x2);
+				}
+			}
+			break;
 		}
 	}
 }

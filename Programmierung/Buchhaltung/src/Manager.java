@@ -55,6 +55,12 @@ public class Manager extends Mitarbeiter {
 		return super.toString()+"Gehalt: "+ gehalt;
 	}
 
+	@Override
+	public void Lohnerhöhung() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	//toString
 	

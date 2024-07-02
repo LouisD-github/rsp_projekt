@@ -54,6 +54,12 @@ public class Angestellter extends Mitarbeiter {
 	public String toString() {
 		return super.toString()+"Gehalt: " + gehalt;
 	}
+
+	@Override
+	public void Lohnerhöhung() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//toString
 	

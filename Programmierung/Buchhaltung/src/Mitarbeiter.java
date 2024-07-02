@@ -14,6 +14,7 @@ public abstract class Mitarbeiter {
 	private LocalDate Eintrittsdatum;
 	private final static int MaxMitarbeiter = 20;
 	private char Geschlecht;
+	private double Prämie;
 	
 	public Mitarbeiter(int _GebJahr, String _Vorname, String _Nachname, String _Beruf,String _Geschlecht) {
 	setGebJahr(_GebJahr); 
@@ -88,7 +89,47 @@ public abstract class Mitarbeiter {
 	public void setGeschlecht(char geschlecht) {
 		Geschlecht = geschlecht;
 	}
+
+	public double getPrämie() {
+		return Prämie;
+	}
+
+	public void setPrämie(double prämie) {
+		Prämie = prämie;
+	}
 	
+	
+	
+	//abstrakte Methoden
+	public abstract String Gehaltsabrechnung();	
+	
+	//Methoden
+	
+	public  void addPrämie() {
+		
+	}
+	public String GeschlechterAnteil(){
+		
+		
+		
+		
+		return "Mitarbeiter; "+AnzahlMitarbeiter+"\nWeiblicheranteil;  "+Weiblich+"\nMännlicheranteil; "+Männlich;
+	}
+	
+	
+	
+	//Datei Arbeit
+	public void MitarbeiterEinlesen() {
+		
+	} 
+	
+    public void MitarbeiterSchreiben() {
+		
+	} 
+	
+	
+		
+		
 	
 	
 }

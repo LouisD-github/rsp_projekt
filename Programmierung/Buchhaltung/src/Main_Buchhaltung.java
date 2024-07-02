@@ -17,7 +17,7 @@ public class Main_Buchhaltung {
 				int i = scanner.nextInt();
 				switch(i) {
 				case 1 : System.out.println("Welche Gruppe wollen sie bearbeiten: Marketing,Managment,Verkauf");
-				
+				         
 				
 			    break;
 				case 2 : ; break;

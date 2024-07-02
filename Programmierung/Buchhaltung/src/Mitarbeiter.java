@@ -225,8 +225,8 @@ public abstract class Mitarbeiter {
     
     @Override
 	public String toString() {
-		return "Mnr: "+ Mnr +"\nGebJahr="+ GebJahr + "\nVorname=" + Vorname + "\nNachname=" + Nachname
-				+ "\nBerufsbezeichnung=" +Berufsbezeichnung + "\nEintrittsdatum=" + Eintrittsdatum + "\nGeschlecht="
+		return "Mnr: "+ Mnr +"\nGebJahr: "+ GebJahr + "\nVorname: " + Vorname + "\nNachname: " + Nachname
+				+ "\nBerufsbezeichnung: " +Berufsbezeichnung + "\nEintrittsdatum: " + Eintrittsdatum + "\nGeschlecht: "
 				+ Geschlecht+"\n";
 	}
 		

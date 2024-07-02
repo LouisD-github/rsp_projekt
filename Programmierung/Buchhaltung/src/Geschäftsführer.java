@@ -23,13 +23,13 @@ public class Geschäftsführer extends Mitarbeiter{
 	public String Gehaltsabrechnung() {
 		String str = "";
 		if(super.getGeschlecht() == 'M') {
-			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Herrn" + super.getNachname()
+			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Herrn " + super.getNachname()
 			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()+"\nDavon Zulage: "
 					+getZulage()+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie()); 
 			; 
 		}
 		else if(super.getGeschlecht() == 'W') {
-			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Frau" + super.getNachname()
+			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Frau " + super.getNachname()
 			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()+"\nDavon Zulage: "
 					+getZulage()+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie()); 
 			; 

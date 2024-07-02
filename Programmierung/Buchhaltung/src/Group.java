@@ -191,17 +191,20 @@ public class Group {
 
 	}
 
-
 	public void toSting2() {
-		
 		for (Mitarbeiter mitarbeiter : XListe) {
-		  if(mitarbeiter==null) {
-			  
+		  if(mitarbeiter==null) {  
 			 return; 
 		  }
           System.out.println(mitarbeiter.toString());
 		}
 		
+	}
+	
+	public void gehaltsabrechnung() {
+		for (int i = 0; i < Liste.length; i++) {
+			System.out.println(Liste[i].Gehaltsabrechnung());
+		}
 	}
 }
 

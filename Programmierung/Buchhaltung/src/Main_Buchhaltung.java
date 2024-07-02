@@ -5,7 +5,6 @@ public class Main_Buchhaltung {
 	public static void main(String[] args) {
 
 		try {
-
 			Group X = new Group("Marketing");
 			Group X1 = new Group("Managment");
 			Group X2 = new Group("Verkauf");
@@ -22,7 +21,7 @@ public class Main_Buchhaltung {
 					String x="";
 					boolean rein =true;
 					do {
-						System.out.println("Welche Gruppe wollen sie bearbeiten: Marketing,Managment,Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
 						x = new Scanner(System.in).nextLine();
 						if(x.equals("Marketing")||x.equals("Managment")||x.equals("Verkauf")) {
 							rein =false;
@@ -45,7 +44,7 @@ public class Main_Buchhaltung {
 					String x2="";
 					boolean rein2 =true;
 					do {
-						System.out.println("Welche Gruppe wollen sie bearbeiten: Marketing,Managment,Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
 						x = new Scanner(System.in).nextLine();
 						if(x.equals("Marketing")||x.equals("Managment")||x.equals("Verkauf")) {
 							rein =false;
@@ -68,7 +67,7 @@ public class Main_Buchhaltung {
 					String x3="";
 					boolean rein3 =true;
 					do {
-						System.out.println("Welche Gruppe wollen sie bearbeiten: Marketing,Managment,Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
 						x3 = new Scanner(System.in).nextLine();
 						if(x3.equals("Marketing")||x3.equals("Managment")||x3.equals("Verkauf")) {
 							rein3 =false;
@@ -84,27 +83,34 @@ public class Main_Buchhaltung {
 					if(x3.equals("Marketing")){
 						X1.toSting2();
 					}
-					
+
 					////////////////////////////////////////////////////////////////////////////////////////////////
 					break;
-				case 4 : break;
+				case 4 : 
+					boolean rein4 =true;
+					do {
+						System.out.println("Welche Gruppe wollen Sie die Gehaltsabrechnung erstellen: Marketing, Managment, Verkauf");
+						x3 = new Scanner(System.in).nextLine();
+						if(x3.equals("Marketing")||x3.equals("Managment")||x3.equals("Verkauf")) {
+							if(x3.equals("Marketing")) {
+								X.gehaltsabrechnung();
+							} else if(x3.equals("Managment")) {
+								X1.gehaltsabrechnung();
+							} else {
+								X2.gehaltsabrechnung();
+							}
+						}
+					}while(rein4);
+					break;
 				case 5 : break;
 				case 6 : schleife = false; break;
 				default : System.out.println("Falsche Eingabe."); break;
 				} 
 			} while(schleife);
 
-
-
-
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
-
-
-
-
 	}
 }
 

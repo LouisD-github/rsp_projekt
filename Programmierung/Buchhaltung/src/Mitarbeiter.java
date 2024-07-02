@@ -75,7 +75,7 @@ public abstract class Mitarbeiter {
 
 	public void setGebJahr(int gebJahr) throws Exception {
 
-         if(gebJahr<2024 || gebJahr>1960) {
+         if(gebJahr>2016 || gebJahr<1960) {
         	 
         	 if(gebJahr<1960) {
             	 

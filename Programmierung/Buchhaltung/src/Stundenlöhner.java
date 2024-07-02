@@ -1,4 +1,4 @@
 
-public class Stundenlöhner extends	Mitarbeiter {
+public class Stundenlöhner extends Mitarbeiter {
 
 }

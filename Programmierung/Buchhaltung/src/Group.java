@@ -187,6 +187,21 @@ public class Group {
 			}
 			System.out.println("Name nicht in der Liste");
 		} while(schleife);
+
+
+	}
+
+
+	public void toSting2() {
+		
+		for (Mitarbeiter mitarbeiter : XListe) {
+		  if(mitarbeiter==null) {
+			  
+			 return; 
+		  }
+          System.out.println(mitarbeiter.toString());
+		}
+		
 	}
 }
 

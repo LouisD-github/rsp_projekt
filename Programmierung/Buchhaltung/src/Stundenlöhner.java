@@ -20,15 +20,18 @@ public class Stundenlöhner extends Mitarbeiter {
 		String str = "";
 		if(super.getGeschlecht() == 'M') {
 			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Herrn" + super.getNachname()
-			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt(); 
+			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()
+			+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie());
 		}
 		else if(super.getGeschlecht() == 'W') {
 			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von Frau" + super.getNachname()
-			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt(); 
+			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()
+			+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie());
 		}
 		else if(super.getGeschlecht() == 'D') {
 			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von " + super.getNachname()
-			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt(); 
+			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()
+			+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie()); 
 		}
 		return str;
 	}

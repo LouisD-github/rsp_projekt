@@ -5,8 +5,10 @@ public class Main_Buchhaltung {
 	public static void main(String[] args) {
 		
 		try {
-			Angestellter X = new Angestellter(2000,"Nikkas","Nagel","Angestellter",'M',6000);
-		
+			
+		    Group X = new Group("Marketing");
+		    Group X1 = new Group("Managment");
+		    Group X3 = new Group("Verkauf");
 			boolean schleife = true;
 			Scanner scanner = new Scanner(System.in);
 			do {
@@ -14,8 +16,11 @@ public class Main_Buchhaltung {
 						+ "3) Mitarbeitedetails anzeigen\n4) Gehaltsabrechnung\n5) Prämie hinzufügen\n6) Programm beenden");
 				int i = scanner.nextInt();
 				switch(i) {
-				case 1 : System.out.println(X.Gehaltsabrechnung()); ; break;
-				case 2 : break;
+				case 1 : System.out.println("Welche Gruppe wollen sie bearbeiten: Marketing,Managment,Verkauf");
+				
+				
+			    break;
+				case 2 : ; break;
 				case 3 : break;
 				case 4 : break;
 				case 5 : break;

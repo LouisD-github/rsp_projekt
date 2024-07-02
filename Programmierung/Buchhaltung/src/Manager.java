@@ -6,6 +6,7 @@ public class Manager extends Mitarbeiter {
 
 	public Manager(int _GebJahr, String _Vorname, String _Nachname, String _Beruf, char _Geschlecht, double _Gehalt) throws Exception {
 		super(_GebJahr, _Vorname, _Nachname, _Beruf, _Geschlecht);
+		setGehalt(_Gehalt);
 	}
 
 	public void Lohnerhöhung(double prozent) throws Exception {

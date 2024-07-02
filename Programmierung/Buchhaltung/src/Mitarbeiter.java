@@ -197,6 +197,8 @@ public abstract class Mitarbeiter {
 	//abstrakte Methoden
 	public abstract String Gehaltsabrechnung();	
 	
+	public abstract void Lohnerhöhung();
+	
 	//Methoden
 	
 	public  void addPrämie(double X) throws Exception {

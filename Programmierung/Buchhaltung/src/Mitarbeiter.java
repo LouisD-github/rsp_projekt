@@ -48,7 +48,7 @@ public abstract class Mitarbeiter {
     private void setMnr() {
 		
     	String p1 = String.valueOf(getGeschlecht());
-    	String p2 = String.valueOf(getGebJahr());
+    	String p2 = Integer.toString(getGebJahr());
         String p3 = String.valueOf(getVorname().charAt(0));
         String p4 = String.valueOf(getNachname().charAt(0));
         String p5 = "";
@@ -77,11 +77,11 @@ public abstract class Mitarbeiter {
 
          if(gebJahr<2024 || gebJahr>1960) {
         	 
-        	 if(gebJahr>1960) {
+        	 if(gebJahr<1960) {
             	 
             	 throw new Exception("Zu Alt");
              }
-        	 if(gebJahr<2016) {
+        	 if(gebJahr>2016) {
             	 
             	 throw new Exception("Zu Jung");
              }

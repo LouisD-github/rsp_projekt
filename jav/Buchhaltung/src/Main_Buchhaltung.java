@@ -106,7 +106,7 @@ public class Main_Buchhaltung {
 								X.gehaltsabrechnung();
 							} else if(x3.equals("Management")) {
 								X1.gehaltsabrechnung();
-							} else if(x3.equals("Exit")) {
+							} else if(x3.equals("Verkauf")) {
 								X2.gehaltsabrechnung();
 							} else if(x3.equals("Exit")){
 								rein4 = false;

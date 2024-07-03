@@ -291,7 +291,7 @@ public class Group {
 
 			}
 			temp= temp/Zähler;
-			System.out.println("Durchschnitts Alter: "+(temp));
+			System.out.println("Durchschnitts Alter: "+(temp-2024));
 		}
 		if(s.equals("2")) {
 			double temp = 0;

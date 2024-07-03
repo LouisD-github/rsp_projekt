@@ -106,6 +106,7 @@ public class Main_Buchhaltung {
 							}
 						}
 					}while(rein4);
+					//Abfrage für aus der Schleife zukommen
 					break;
 				case 5 : break;
 				case 6 : 

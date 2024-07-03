@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.time.LocalDate;
 
 public class Stundenlöhner extends Mitarbeiter {
@@ -32,6 +34,14 @@ public class Stundenlöhner extends Mitarbeiter {
 			str = "Gehaltsabrechnung für den " + LocalDate.now() + " von " + super.getNachname()
 			+ " " + super.getVorname() +  " (" + super.getMnr() + "): " + getGehalt()
 			+"\nWeiterhin Prämie: "+super.getPrämie()+"\nInsgesamt: "+(getGehalt()+getPrämie()); 
+		}
+		try {
+			LocalDate d = LocalDate.now();
+			BufferedWriter writer = new BufferedWriter(new FileWriter("texts/Gehaltsabrechnung_"+d.getMonth()+"_"+d.getYear()+".txt"));
+			writer.write(str);
+			writer.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return str;
 	}

@@ -205,6 +205,9 @@ public class Group {
 
 	public void gehaltsabrechnung() {
 		for (int i = 0; i < Liste.length; i++) {
+			if(Liste[i] == null) {
+				return;
+			}
 			System.out.println(Liste[i].Gehaltsabrechnung());
 		}
 	}

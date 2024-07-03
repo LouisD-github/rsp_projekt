@@ -235,7 +235,7 @@ public class Group {
 
 					return; 
 				}
-				System.out.println("Wie viel Prozent bro Job");
+				System.out.println("Wie viel Prozent pro Job");
 				System.out.println("Manager: ");
 				int x1 = new Scanner(System.in).nextInt();
 				System.out.println("Geschäftsführer: ");

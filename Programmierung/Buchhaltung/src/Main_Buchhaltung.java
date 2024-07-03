@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main_Buchhaltung {
@@ -130,6 +132,35 @@ public class Main_Buchhaltung {
 			} while(schleife);
 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void einlesen() throws Exception {
+		String dateipfad = "texts/Mitarbeiter.txt";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(dateipfad))) {
+			String zeile;
+			while ((zeile = br.readLine()) != null) {
+				String[] speicher = zeile.split(";");
+				
+				for (String s : speicher) {
+                    System.out.println(s);}
+				
+			if(speicher[1].equals("Management")) {
+				
+			} else if(speicher[1].equals("Angestellter")) {
+				
+			} else if(speicher[1].equals("Geschaftsführer")) {
+				
+			} else if(speicher[1].equals("Stundenlöhner")) {
+				
+			} else {
+				throw new Exception("Fehler in der Mitarbeiter.txt");
+			}
+				
+			}
+		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

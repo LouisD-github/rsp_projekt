@@ -1,0 +1,31 @@
+Beruf;Gebjahr;Vorname;Nachname;Geschlecht;Gehalt(Stundenllohn);(Zulage/);Gruppe;
+
+public void einlesen() throws Exception {
+		String dateipfad = "/files/Mitarbeiter.txt";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(dateipfad))) {
+			String zeile;
+			while ((zeile = br.readLine()) != null) {
+				String[] speicher = zeile.split(";");
+				
+				for (String s : speicher) {
+                    System.out.println(s);}
+				
+			if(speicher[1].equals("Management")) {
+				
+			} else if(speicher[1].equals("Angestellter")) {
+				
+			} else if(speicher[1].equals("Geschaftsführer")) {
+				
+			} else if(speicher[1].equals("Stundenlöhner")) {
+				
+			} else {
+				throw new Exception("Fehler in der Mitarbeiter.txt");
+			}
+				
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+

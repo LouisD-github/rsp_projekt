@@ -12,7 +12,7 @@ public class Main_Buchhaltung {
 			Scanner scanner = new Scanner(System.in);
 			do {
 				System.out.println("Wähle einen der Menüpunkt:\n1) Mitarbeiter hinzufügen\n2) Mitarbeiter entfernen\n"
-						+ "3) Mitarbeitedetails anzeigen\n4) Gehaltsabrechnung\n5) Prämie hinzufügen\n6) Programm beenden");
+						+ "3) Mitarbeitedetails anzeigen\n4) Gehaltsabrechnung\n5) Prämie hinzufügen\n6) Prämie hinzufügen \n7) Programm beenden");
 				int i = scanner.nextInt();
 				switch(i) {
 
@@ -103,7 +103,28 @@ public class Main_Buchhaltung {
 					}while(rein4);
 					break;
 				case 5 : break;
-				case 6 : schleife = false; break;
+				case 6 : 
+					String x7="";
+					boolean rein7 =true;
+					do {
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
+						x7 = new Scanner(System.in).nextLine();
+						if(x7.equals("Marketing")||x7.equals("Managment")||x7.equals("Verkauf")) {
+							rein7 =false;
+
+						}
+					}while(rein7);
+					if(x7.equals("Verkauf")){
+						X2.Lohnerhöhung();
+					}
+					if(x7.equals("Managment")){
+						X1.Lohnerhöhung();
+					}
+					if(x7.equals("Marketing")){
+						X.Lohnerhöhung();
+					}
+					break;
+				case 7 : schleife = false; break;
 				default : System.out.println("Falsche Eingabe."); break;
 				} 
 			} while(schleife);

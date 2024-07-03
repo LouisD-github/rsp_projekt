@@ -288,7 +288,7 @@ public class Group {
 					Zähler++;
 
 				}
-				
+
 			}
 			temp= temp/Zähler;
 			System.out.println("Durchschnitts Alter: "+(temp));
@@ -303,40 +303,53 @@ public class Group {
 				}else {
 					if(mitarbeiter instanceof Manager) {
 						temp = temp + ((Manager)mitarbeiter).getGehalt();
-							
+
 					}
 					if(mitarbeiter instanceof Angestellter) {
 						temp = temp + ((Angestellter)mitarbeiter).getGehalt();
-						
+
 					}
 					if(mitarbeiter instanceof Stundenlöhner) {
 						temp = temp + ((Stundenlöhner)mitarbeiter).getGehalt();
-							
+
 					}
 					if(mitarbeiter instanceof Geschäftsführer) {
 						temp = temp + ((Geschäftsführer)mitarbeiter).getGehalt();
-							
+
 					}
-					
+
 					Zähler++;
 
 				}
-				
+
 			}
 			temp= temp/Zähler;
 			System.out.println("Durchschnitts Gehalt: "+temp);
 		}
 		if(s.equals("3")) {
-			
+
 			Mitarbeiter Filler = new Manager(2002,"Filler","Filler","Manager",'D',1);
-			
-		System.out.println( "Mitarbeiter: "+(Filler.getAnzahlMitarbeiter()-1)
-				+"\nWeiblich: "+Filler.getWeiblich()
-				+"\nMännlich: "+Filler.getMännlich()
-				+"\nDivers: "+(Filler.getDivers()-1));
+
+			System.out.println( "Mitarbeiter: "+(Filler.getAnzahlMitarbeiter()-1)
+					+"\nWeiblich: "+Filler.getWeiblich()
+					+"\nMännlich: "+Filler.getMännlich()
+					+"\nDivers: "+(Filler.getDivers()-1));
 		}
-		
+
 	}
 
+	public void addMitarbeiter2(Mitarbeiter m) {
+		for (int i = 0; i < XListe.length;) {
+			if(XListe[i] == null) {
+
+				this.XListe[i] = m;
+				return;
+			}
+			else {
+				i++;	
+			}
+
+		}
+	}
 }
 

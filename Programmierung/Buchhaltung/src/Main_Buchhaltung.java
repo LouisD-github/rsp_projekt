@@ -3,13 +3,16 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main_Buchhaltung {
+	public static Group X;
+	public static Group X1;
+	public static Group X2;
 
 	public static void main(String[] args) {
 
 		try {
-			Group X = new Group("Marketing");
-			Group X1 = new Group("Management");
-			Group X2 = new Group("Verkauf");
+			 X = new Group("Marketing");
+			 X1 = new Group("Management");
+			 X2 = new Group("Verkauf");
 			boolean schleife = true;
 			Scanner scanner = new Scanner(System.in);
 			do {
@@ -180,7 +183,8 @@ public class Main_Buchhaltung {
 					//Gehalt, Zulage, ...
 					int gehalt = Integer.parseInt(speicher[5]);
 					
-					Manager X = new Manager(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+					Manager Z = new Manager(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Angestellter")) {
 					//Gebjahr
 					int d = Integer.parseInt(speicher[1]);
@@ -189,7 +193,8 @@ public class Main_Buchhaltung {
 					//Gehalt, Zulage, ...
 					int gehalt = Integer.parseInt(speicher[5]);
 					
-					Angestellter X = new Angestellter(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+					Angestellter Z = new Angestellter(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Geschaftsführer")) {
 					//Gebjahr
 					int d = Integer.parseInt(speicher[1]);
@@ -199,7 +204,8 @@ public class Main_Buchhaltung {
 					int gehalt = Integer.parseInt(speicher[5]);
 					int zulage = Integer.parseInt(speicher[6]);
 					
-					Geschäftsführer X = new Geschäftsführer(d, speicher[2], speicher[3], speicher[0], c, gehalt, zulage);
+					Geschäftsführer Z = new Geschäftsführer(d, speicher[2], speicher[3], speicher[0], c, gehalt, zulage);
+					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Stundenlöhner")) {
 					//Gebjahr
 					int d = Integer.parseInt(speicher[1]);
@@ -209,7 +215,8 @@ public class Main_Buchhaltung {
 					int sl = Integer.parseInt(speicher[5]);
 					int as = Integer.parseInt(speicher[6]);
 					
-					Stundenlöhner X = new Stundenlöhner(d, speicher[2], speicher[3], speicher[0], c, sl, as);
+					Stundenlöhner Z = new Stundenlöhner(d, speicher[2], speicher[3], speicher[0], c, sl, as);
+					gruppehinzufügen(Z, speicher[7]);
 				} else {
 					throw new Exception("Fehler in der Mitarbeiter.txt");
 				}
@@ -219,5 +226,22 @@ public class Main_Buchhaltung {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public static void gruppehinzufügen(Mitarbeiter mitarbeiter, String gruppe) throws Exception {
+	    switch (gruppe) {
+	        case "Marketing":
+	            X.addMitarbeiter2(mitarbeiter);
+	            break;
+	        case "Management":
+	            X1.addMitarbeiter2(mitarbeiter);
+	            break;
+	        case "Verkauf":
+	            X2.addMitarbeiter2(mitarbeiter);
+	            break;
+	        default:
+	            throw new IllegalArgumentException("Ungültige Gruppe: " + gruppe);
+	    }
+	}
+	
 }
 

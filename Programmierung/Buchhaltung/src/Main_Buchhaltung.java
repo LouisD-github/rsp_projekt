@@ -239,7 +239,7 @@ public class Main_Buchhaltung {
 	            X2.addMitarbeiter2(mitarbeiter);
 	            break;
 	        default:
-	            throw new IllegalArgumentException("Ungültige Gruppe: " + gruppe);
+	            throw new Exception("Ungültige Gruppe: " + gruppe);
 	    }
 	}
 	

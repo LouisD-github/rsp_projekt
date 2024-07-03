@@ -11,16 +11,16 @@ public class Main_Buchhaltung {
 
 	public static void main(String[] args) {
 		try {
-			einlesen();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
 			EheM = new Mitarbeiter[99];
 			X = new Group("Marketing");
 			X1 = new Group("Management");
 			X2 = new Group("Verkauf");
 			boolean schleife = true;
+			try {
+				einlesen();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 			Scanner scanner = new Scanner(System.in);
 			do {
 				System.out.println("Wähle einen der Menüpunkt:\n1) Mitarbeiter hinzufügen\n2) Mitarbeiter entfernen\n"
@@ -215,9 +215,6 @@ public class Main_Buchhaltung {
 			String zeile;
 			while ((zeile = br.readLine()) != null) {
 				String[] speicher = zeile.split(";");
-
-				for (String s : speicher) {
-					System.out.println(s);}
 
 				if(speicher[0].equals("Manager")) {
 					//Gebjahr

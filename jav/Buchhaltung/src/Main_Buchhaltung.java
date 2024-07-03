@@ -8,7 +8,11 @@ public class Main_Buchhaltung {
 	public static Group X2;
 
 	public static void main(String[] args) {
-
+		try {
+			einlesen();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		try {
 			 X = new Group("Marketing");
 			 X1 = new Group("Management");
@@ -95,18 +99,20 @@ public class Main_Buchhaltung {
 					boolean rein4 =true;
 					do {
 						System.out.println("Welche Gruppe wollen Sie die Gehaltsabrechnung erstellen: Marketing, Management, Verkauf");
+						System.out.println("Um das Menü zuverlassen: 'Exit'");
 						x3 = new Scanner(System.in).nextLine();
-						if(x3.equals("Marketing")||x3.equals("Management")||x3.equals("Verkauf")) {
+						if(x3.equals("Marketing")||x3.equals("Management")||x3.equals("Verkauf")||x3.equals("Exit")){
 							if(x3.equals("Marketing")) {
 								X.gehaltsabrechnung();
 							} else if(x3.equals("Management")) {
 								X1.gehaltsabrechnung();
-							} else {
+							} else if(x3.equals("Exit")) {
 								X2.gehaltsabrechnung();
+							} else if(x3.equals("Exit")){
+								rein4 = false;
 							}
 						}
 					}while(rein4);
-					//Abfrage für aus der Schleife zukommen
 					break;
 				case 5 : break;
 				case 6 : 

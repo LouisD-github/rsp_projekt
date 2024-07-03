@@ -194,6 +194,33 @@ public abstract class Mitarbeiter {
 	
 	
 	
+	
+	
+	public static int getWeiblich() {
+		return Weiblich;
+	}
+
+	
+
+	public static int getMännlich() {
+		return Männlich;
+	}
+
+	
+
+	public static int getDivers() {
+		return Divers;
+	}
+
+	
+
+	public static int getAnzahlMitarbeiter() {
+		return AnzahlMitarbeiter;
+	}
+
+	
+	
+
 	//abstrakte Methoden
 	public abstract String Gehaltsabrechnung();	
 	

@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -172,8 +173,9 @@ public class Group {
 		}
 	}
 
-	public void delMitarbeiter() throws Exception {
-		System.out.println("Geben Sie den Name des Mitarbeiters an welcher entfernt werden soll: ");
+	public Mitarbeiter delMitarbeiter() throws Exception {
+		Mitarbeiter temp = null;
+		System.out.println("Geben Sie den Namen des Mitarbeiters an welcher entfernt werden soll: ");
 		for (int i = 0; i < XListe.length; i++) {
 			System.out.print(XListe[i].getVorname() + " ");
 		}
@@ -183,14 +185,14 @@ public class Group {
 			x = new Scanner(System.in).nextLine();
 			for(int j = 0; j < XListe.length; j++) {
 				if(XListe[j].getNachname() == x) {
+					temp = XListe[j];
 					XListe[j] = null;
-					return;
+					return temp;
 				}
 			}
 			System.out.println("Name nicht in der Liste");
 		} while(schleife);
-
-
+		return temp;
 	}
 
 	public void toSting2() {
@@ -354,5 +356,16 @@ public class Group {
 
 		}
 	}
+
+	public Mitarbeiter längersterMitabeiter() {
+		Mitarbeiter temp = Liste[0];
+		for (int i = 1; i < Liste.length; i++) {
+			if(Liste[i].getEintrittsdatum().isBefore((ChronoLocalDate) Liste[i-1])){
+				Liste[i] = temp;
+			}
+		}
+			return temp;
+	}
+
 }
 

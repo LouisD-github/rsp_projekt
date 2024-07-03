@@ -1,11 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Scanner;
 
 public class Main_Buchhaltung {
 	public static Group X;
 	public static Group X1;
 	public static Group X2;
+	public static Mitarbeiter[] EheM;
 
 	public static void main(String[] args) {
 		try {
@@ -14,14 +16,15 @@ public class Main_Buchhaltung {
 			System.out.println(e.getMessage());
 		}
 		try {
-			 X = new Group("Marketing");
-			 X1 = new Group("Management");
-			 X2 = new Group("Verkauf");
+			EheM = new Mitarbeiter[99];
+			X = new Group("Marketing");
+			X1 = new Group("Management");
+			X2 = new Group("Verkauf");
 			boolean schleife = true;
 			Scanner scanner = new Scanner(System.in);
 			do {
 				System.out.println("Wähle einen der Menüpunkt:\n1) Mitarbeiter hinzufügen\n2) Mitarbeiter entfernen\n"
-						+ "3) Mitarbeitedetails anzeigen\n4) Gehaltsabrechnung\n5) Prämie hinzufügen\n6) Prämie hinzufügen\n7) Durschnitt jeder Gruppe \n8) Programm beenden");
+						+ "3) Mitarbeitedetails anzeigen\n4) Gehaltsabrechnung\n5) Längster Mitarbeiter\n6) Prämie hinzufügen\n7) Durschnitt jeder Gruppe \n8) Programm beenden");
 				int i = scanner.nextInt();
 				switch(i) {
 
@@ -51,6 +54,7 @@ public class Main_Buchhaltung {
 				case 2 :
 					/////////////////////////////////////////////////////////////////////////////////////////
 					String x2="";
+					Mitarbeiter temp = null;
 					boolean rein2 =true;
 					do {
 						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Management, Verkauf");
@@ -61,13 +65,28 @@ public class Main_Buchhaltung {
 						}
 					}while(rein2);
 					if(x2.equals("Verkauf")){
-						X2.delMitarbeiter();
+						temp=X2.delMitarbeiter();
+						for(int j = 0; j<EheM.length;j++) {
+							if(EheM[j] == null) {
+								EheM[j] = temp;
+							}
+						}
 					}
 					if(x2.equals("Management")){
-						X1.delMitarbeiter();
+						temp=X1.delMitarbeiter();
+						for(int j = 0; j<EheM.length;j++) {
+							if(EheM[j] == null) {
+								EheM[j] = temp;
+							}
+						}
 					}
 					if(x2.equals("Marketing")){
-						X.delMitarbeiter();
+						temp=X.delMitarbeiter();
+						for(int j = 0; j<EheM.length;j++) {
+							if(EheM[j] == null) {
+								EheM[j] = temp;
+							}
+						}
 					}
 					break;
 					////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,7 +133,25 @@ public class Main_Buchhaltung {
 						}
 					}while(rein4);
 					break;
-				case 5 : break;
+				case 5 :
+					Mitarbeiter alt=X.längersterMitabeiter();
+					Mitarbeiter alt2=X1.längersterMitabeiter();
+					Mitarbeiter alt3=X2.längersterMitabeiter();
+					if(alt.getEintrittsdatum().isBefore((ChronoLocalDate) alt2)) {
+						if(alt.getEintrittsdatum().isBefore((ChronoLocalDate) alt3)) {
+							System.out.println("Ältester Mitarbeiter: " + alt);
+						} else if(alt2.getEintrittsdatum().isBefore((ChronoLocalDate) alt3)) {
+							if(alt2.getEintrittsdatum().isBefore((ChronoLocalDate) alt)) {
+								System.out.println("Ältester Mitarbeiter: " + alt2);
+							}
+							else if(alt3.getEintrittsdatum().isBefore((ChronoLocalDate) alt2)) {
+								if(alt3.getEintrittsdatum().isBefore((ChronoLocalDate) alt)) {
+									System.out.println("Ältester Mitarbeiter: " + alt3);
+								}
+							}
+						}
+					}
+					break;
 				case 6 : 
 					String x6="";
 					boolean rein6 =true;
@@ -159,7 +196,7 @@ public class Main_Buchhaltung {
 					}
 
 					////////////////////////////////////////////////////////////////////////////////////////////////
-					
+
 					break;
 				case 8 : schleife = false; break;
 				default : System.out.println("Falsche Eingabe."); break;
@@ -189,7 +226,7 @@ public class Main_Buchhaltung {
 					char c = speicher[4].charAt(0);
 					//Gehalt, Zulage, ...
 					int gehalt = Integer.parseInt(speicher[5]);
-					
+
 					Manager Z = new Manager(d, speicher[2], speicher[3], speicher[0], c, gehalt);
 					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Angestellter")) {
@@ -199,7 +236,7 @@ public class Main_Buchhaltung {
 					char c = speicher[4].charAt(0);
 					//Gehalt, Zulage, ...
 					int gehalt = Integer.parseInt(speicher[5]);
-					
+
 					Angestellter Z = new Angestellter(d, speicher[2], speicher[3], speicher[0], c, gehalt);
 					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Geschaftsführer")) {
@@ -210,7 +247,7 @@ public class Main_Buchhaltung {
 					//Gehalt, Zulage, ...
 					int gehalt = Integer.parseInt(speicher[5]);
 					int zulage = Integer.parseInt(speicher[6]);
-					
+
 					Geschäftsführer Z = new Geschäftsführer(d, speicher[2], speicher[3], speicher[0], c, gehalt, zulage);
 					gruppehinzufügen(Z, speicher[7]);
 				} else if(speicher[0].equals("Stundenlöhner")) {
@@ -221,7 +258,7 @@ public class Main_Buchhaltung {
 					//Gehalt, Zulage, ...
 					int sl = Integer.parseInt(speicher[5]);
 					int as = Integer.parseInt(speicher[6]);
-					
+
 					Stundenlöhner Z = new Stundenlöhner(d, speicher[2], speicher[3], speicher[0], c, sl, as);
 					gruppehinzufügen(Z, speicher[7]);
 				} else {
@@ -233,22 +270,22 @@ public class Main_Buchhaltung {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	public static void gruppehinzufügen(Mitarbeiter mitarbeiter, String gruppe) throws Exception {
-	    switch (gruppe) {
-	        case "Marketing":
-	            X.addMitarbeiter2(mitarbeiter);
-	            break;
-	        case "Management":
-	            X1.addMitarbeiter2(mitarbeiter);
-	            break;
-	        case "Verkauf":
-	            X2.addMitarbeiter2(mitarbeiter);
-	            break;
-	        default:
-	            throw new Exception("Ungültige Gruppe: " + gruppe);
-	    }
+		switch (gruppe) {
+		case "Marketing":
+			X.addMitarbeiter2(mitarbeiter);
+			break;
+		case "Management":
+			X1.addMitarbeiter2(mitarbeiter);
+			break;
+		case "Verkauf":
+			X2.addMitarbeiter2(mitarbeiter);
+			break;
+		default:
+			throw new Exception("Ungültige Gruppe: " + gruppe);
+		}
 	}
-	
+
 }
 

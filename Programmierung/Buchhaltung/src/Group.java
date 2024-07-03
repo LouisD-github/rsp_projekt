@@ -270,15 +270,15 @@ public class Group {
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////7
 
-	public String Durchschnitt() throws Exception {
+	public void Durchschnitt() throws Exception {
 		System.out.println("Wählen sie die Option der Durchschnitts aus");
 		System.out.println("1)Durchschnitts Alter"
 				+ "\n2)Durchschnitts Gehalt"
-				+"\n3)Anzahl der Mitarbeiter");
+				+"\n3)Anzahl Aller Mitarbeiter");
 		String s = new Scanner(System.in).nextLine();
 		if(s.equals("1")) {
 			double temp = 0;
-			int Zähler =1;
+			int Zähler =0;
 			for (Mitarbeiter mitarbeiter : Liste) {
 				if(mitarbeiter==null) {
 
@@ -288,13 +288,14 @@ public class Group {
 					Zähler++;
 
 				}
-				temp= temp/Zähler;
-				return "Durchschnitts Alter: "+(2024-temp);
+				
 			}
+			temp= temp/Zähler;
+			System.out.println("Durchschnitts Alter: "+(temp));
 		}
 		if(s.equals("2")) {
 			double temp = 0;
-			int Zähler =1;
+			int Zähler =0;
 			for (Mitarbeiter mitarbeiter : Liste) {
 				if(mitarbeiter==null) {
 
@@ -320,20 +321,21 @@ public class Group {
 					Zähler++;
 
 				}
-				temp= temp/Zähler;
-				return "Durchschnitts Gehalt: "+temp;
+				
 			}
+			temp= temp/Zähler;
+			System.out.println("Durchschnitts Gehalt: "+temp);
 		}
 		if(s.equals("3")) {
 			
-			Mitarbeiter Filler = new Manager(2002,"Filler","Filler","Manager",'C',0);
+			Mitarbeiter Filler = new Manager(2002,"Filler","Filler","Manager",'D',1);
 			
-			return "Mitarbeiter: "+(Filler.getAnzahlMitarbeiter()-1)
-					+"\nWeiblich: "+Filler.getWeiblich()
-					+"\nMännlich: "+Filler.getMännlich()
-					+"\nDivers: "+Filler.getDivers();
+		System.out.println( "Mitarbeiter: "+(Filler.getAnzahlMitarbeiter()-1)
+				+"\nWeiblich: "+Filler.getWeiblich()
+				+"\nMännlich: "+Filler.getMännlich()
+				+"\nDivers: "+(Filler.getDivers()-1));
 		}
-		return null;
+		
 	}
 
 }

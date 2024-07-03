@@ -8,7 +8,7 @@ public class Main_Buchhaltung {
 
 		try {
 			Group X = new Group("Marketing");
-			Group X1 = new Group("Managment");
+			Group X1 = new Group("Management");
 			Group X2 = new Group("Verkauf");
 			boolean schleife = true;
 			Scanner scanner = new Scanner(System.in);
@@ -23,9 +23,9 @@ public class Main_Buchhaltung {
 					String x="";
 					boolean rein =true;
 					do {
-						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Management, Verkauf");
 						x = new Scanner(System.in).nextLine();
-						if(x.equals("Marketing")||x.equals("Managment")||x.equals("Verkauf")) {
+						if(x.equals("Marketing")||x.equals("Management")||x.equals("Verkauf")) {
 							rein =false;
 
 						}
@@ -33,7 +33,7 @@ public class Main_Buchhaltung {
 					if(x.equals("Verkauf")){
 						X2.addMitarbeiter();
 					}
-					if(x.equals("Managment")){
+					if(x.equals("Management")){
 						X1.addMitarbeiter();
 					}
 					if(x.equals("Marketing")){
@@ -46,9 +46,9 @@ public class Main_Buchhaltung {
 					String x2="";
 					boolean rein2 =true;
 					do {
-						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Management, Verkauf");
 						x = new Scanner(System.in).nextLine();
-						if(x.equals("Marketing")||x.equals("Managment")||x.equals("Verkauf")) {
+						if(x.equals("Marketing")||x.equals("Management")||x.equals("Verkauf")) {
 							rein =false;
 
 						}
@@ -56,7 +56,7 @@ public class Main_Buchhaltung {
 					if(x2.equals("Verkauf")){
 						X2.delMitarbeiter();
 					}
-					if(x2.equals("Managment")){
+					if(x2.equals("Management")){
 						X1.delMitarbeiter();
 					}
 					if(x2.equals("Marketing")){
@@ -69,9 +69,9 @@ public class Main_Buchhaltung {
 					String x3="";
 					boolean rein3 =true;
 					do {
-						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
+						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Management, Verkauf");
 						x3 = new Scanner(System.in).nextLine();
-						if(x3.equals("Marketing")||x3.equals("Managment")||x3.equals("Verkauf")) {
+						if(x3.equals("Marketing")||x3.equals("Management")||x3.equals("Verkauf")) {
 							rein3 =false;
 
 						}
@@ -91,12 +91,12 @@ public class Main_Buchhaltung {
 				case 4 : 
 					boolean rein4 =true;
 					do {
-						System.out.println("Welche Gruppe wollen Sie die Gehaltsabrechnung erstellen: Marketing, Managment, Verkauf");
+						System.out.println("Welche Gruppe wollen Sie die Gehaltsabrechnung erstellen: Marketing, Management, Verkauf");
 						x3 = new Scanner(System.in).nextLine();
-						if(x3.equals("Marketing")||x3.equals("Managment")||x3.equals("Verkauf")) {
+						if(x3.equals("Marketing")||x3.equals("Management")||x3.equals("Verkauf")) {
 							if(x3.equals("Marketing")) {
 								X.gehaltsabrechnung();
-							} else if(x3.equals("Managment")) {
+							} else if(x3.equals("Management")) {
 								X1.gehaltsabrechnung();
 							} else {
 								X2.gehaltsabrechnung();
@@ -111,7 +111,7 @@ public class Main_Buchhaltung {
 					do {
 						System.out.println("Welche Gruppe wollen Sie bearbeiten: Marketing, Managment, Verkauf");
 						x7 = new Scanner(System.in).nextLine();
-						if(x7.equals("Marketing")||x7.equals("Managment")||x7.equals("Verkauf")) {
+						if(x7.equals("Marketing")||x7.equals("Management")||x7.equals("Verkauf")) {
 							rein7 =false;
 
 						}
@@ -119,7 +119,7 @@ public class Main_Buchhaltung {
 					if(x7.equals("Verkauf")){
 						X2.Lohnerhöhung();
 					}
-					if(x7.equals("Managment")){
+					if(x7.equals("Management")){
 						X1.Lohnerhöhung();
 					}
 					if(x7.equals("Marketing")){
@@ -135,7 +135,7 @@ public class Main_Buchhaltung {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	public static void einlesen() throws Exception {
 		String dateipfad = "texts/Mitarbeiter.txt";
 
@@ -143,22 +143,52 @@ public class Main_Buchhaltung {
 			String zeile;
 			while ((zeile = br.readLine()) != null) {
 				String[] speicher = zeile.split(";");
-				
+
 				for (String s : speicher) {
-                    System.out.println(s);}
-				
-			if(speicher[1].equals("Management")) {
-				
-			} else if(speicher[1].equals("Angestellter")) {
-				
-			} else if(speicher[1].equals("Geschaftsführer")) {
-				
-			} else if(speicher[1].equals("Stundenlöhner")) {
-				
-			} else {
-				throw new Exception("Fehler in der Mitarbeiter.txt");
-			}
-				
+					System.out.println(s);}
+
+				if(speicher[0].equals("Manager")) {
+					//Gebjahr
+					int d = Integer.parseInt(speicher[1]);
+					//Geschlecht
+					char c = speicher[4].charAt(0);
+					//Gehalt, Zulage, ...
+					int gehalt = Integer.parseInt(speicher[5]);
+					
+					Manager X = new Manager(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+				} else if(speicher[0].equals("Angestellter")) {
+					//Gebjahr
+					int d = Integer.parseInt(speicher[1]);
+					//Geschlecht
+					char c = speicher[4].charAt(0);
+					//Gehalt, Zulage, ...
+					int gehalt = Integer.parseInt(speicher[5]);
+					
+					Angestellter X = new Angestellter(d, speicher[2], speicher[3], speicher[0], c, gehalt);
+				} else if(speicher[0].equals("Geschaftsführer")) {
+					//Gebjahr
+					int d = Integer.parseInt(speicher[1]);
+					//Geschlecht
+					char c = speicher[4].charAt(0);
+					//Gehalt, Zulage, ...
+					int gehalt = Integer.parseInt(speicher[5]);
+					int zulage = Integer.parseInt(speicher[6]);
+					
+					Geschäftsführer X = new Geschäftsführer(d, speicher[2], speicher[3], speicher[0], c, gehalt, zulage);
+				} else if(speicher[0].equals("Stundenlöhner")) {
+					//Gebjahr
+					int d = Integer.parseInt(speicher[1]);
+					//Geschlecht
+					char c = speicher[4].charAt(0);
+					//Gehalt, Zulage, ...
+					int sl = Integer.parseInt(speicher[5]);
+					int as = Integer.parseInt(speicher[6]);
+					
+					Stundenlöhner X = new Stundenlöhner(d, speicher[2], speicher[3], speicher[0], c, sl, as);
+				} else {
+					throw new Exception("Fehler in der Mitarbeiter.txt");
+				}
+
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
